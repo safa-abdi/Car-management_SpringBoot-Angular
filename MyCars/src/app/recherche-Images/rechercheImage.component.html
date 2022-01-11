@@ -1,0 +1,96 @@
+<h2><br /></h2>
+&nbsp;&nbsp;
+<h3 style="color: cadetblue">
+  &nbsp;&nbsp; Recherche par nom Image &nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Recherche par nom Voiture
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Supprimer image
+</h3>
+<hr />
+<h2><br /></h2>
+<div class="container row" align="center">
+  <div class="col-md-2">
+    <div class="select">
+      <select
+        class="form-control"
+        id="id"
+        placeholder="image name"
+        [(ngModel)]="imageName"
+        name="name"
+        required
+      >
+        <option [ngValue]="image.name" *ngFor="let image of images">
+          {{ image.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <input
+      type="button"
+      (click)="getImage()"
+      value="Get Image"
+      class="btn btn-info"
+    />
+  </div>
+  &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
+  <div class="col-md-3">
+    <div class="select">
+      <select
+        class="form-control"
+        id="inputState"
+        name="idVoiture"
+        [(ngModel)]="idVoiture"
+        required
+      >
+        <option [ngValue]="voiture.idVoiture" *ngFor="let voiture of voitures">
+          {{ voiture.designation }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <input
+      type="button"
+      (click)="getImageById()"
+      value="Get Image"
+      class="btn btn-info"
+    />
+  </div>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div class="col-md-1">
+    <div class="select">
+      <select
+        class="form-control"
+        id="id"
+        placeholder="image name"
+        [(ngModel)]="id"
+        name="id"
+        required
+      >
+        <option [ngValue]="image.id" *ngFor="let image of images">
+          {{ image.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <a class="btn btn-danger" [(ngModel)]="id" (click)="supprimerImage()"
+      >Supprimer</a
+    >
+  </div>
+</div>
+<h4><br /></h4>
+
+<div class="container row">
+  <div class="col-md-6">
+    <div *ngIf="retrievedImage">
+      <img [src]="retrievedImage" width="500px" height="400px" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="retrievedImage1">
+      <img [src]="retrievedImage1" width="600px" height="400px" />
+    </div>
+  </div>
+</div>

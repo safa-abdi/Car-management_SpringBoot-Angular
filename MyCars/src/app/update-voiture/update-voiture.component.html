@@ -1,0 +1,139 @@
+<head>
+  <style>
+    td{
+       color: darkcyan; font-weight: bold; font-style: italic";
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <div>
+      <h2 style="text-align: center">Modifier une Voiture</h2>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <form #updateForm="ngForm" (ngSubmit)="updateVoiture(updateForm)">
+      <table width="100%">
+        <tr>
+          <td rowspan="7" width="30%">
+            <img
+              class="img-responsive"
+              src="assets/images/im10.jpg"
+              width="500"
+              height="400"
+            />
+          </td>
+          <td width="35%">
+            <div class="col-sm-3 col-md-3 col-lg-5">
+              <label>ID Voiture</label>
+              <input
+                readonly
+                type="text"
+                [(ngModel)]="currentVoiture.idVoiture"
+                name="idVoiture"
+                class="form-control"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+          </td>
+          <td width="35%">
+            <div class="col-sm-4 col-md-4 col-lg-10">
+              <label>Designation</label>
+              <input
+                type="text"
+                [(ngModel)]="currentVoiture.designation"
+                name="designation"
+                class="form-control"
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="col-sm-4 col-md-4 col-lg-9">
+              <label>dateCreation</label>
+              <input
+                type="date"
+                [ngModel]="currentVoiture.dateCreation | date: 'yyyy-MM-dd'"
+                (ngModelChange)="currentVoiture.dateCreation = $event"
+                name="dateCreation"
+                class="form-control"
+              />
+            </div>
+          </td>
+          <td>
+            <div class="col-sm-4 col-md-4 col-lg-10">
+              <label>Prix Voiture</label>
+              <input
+                type="number"
+                [(ngModel)]="currentVoiture.prixVoiture"
+                name="prixVoiture"
+                class="form-control"
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="col-sm-4 col-md-4 col-lg-10">
+              <label>Couleurs</label>
+              <input
+                type="text"
+                [(ngModel)]="currentVoiture.couleurs"
+                name="couleurs"
+                class="form-control"
+              />
+            </div>
+          </td>
+          <td>
+            <div class="col-sm-4 col-md-4 col-lg-10">
+              <label>disponibilite</label>
+              <input
+                type="text"
+                [(ngModel)]="currentVoiture.disponibilite"
+                name="disponibilite"
+                class="form-control"
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="col-sm-4 col-md-4 col-lg-11">
+              <label>Marque</label>
+              <div class="select">
+                <select
+                  class="form-control"
+                  id="inputState"
+                  name="marque"
+                  [(ngModel)]="currentVoiture.marque.idmarque"
+                  required
+                >
+                  <option
+                    [ngValue]="marque.idmarque"
+                    *ngFor="let marque of marques"
+                    selected
+                  >
+                    {{ marque.nomMarque }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center">
+            <div class="mt-2">
+              <br />
+              <button type="submit" class="btn btn-outline-warning btn-lg">
+                Modifier
+              </button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>

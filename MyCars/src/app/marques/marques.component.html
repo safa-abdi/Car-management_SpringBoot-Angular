@@ -1,0 +1,47 @@
+<html>
+  <body
+    [ngStyle]="{
+      backgroundImage: 'url(assets/images/im5.jpg)',
+      'background-repeat': 'no-repeat',
+      height: '
+      800px',
+      'background-size': '100% 800px'
+    }"
+  >
+    <br />
+    <br />
+    <div class="container">
+      <div class="card shadow mb-4">
+        <div class="card-body">
+          <table class="table table-striped">
+            <tr>
+              <th>Id</th>
+              <th>Nom Marque</th>
+              <th>Pays</th>
+              <th>Action</th>
+            </tr>
+            <tbody *ngFor="let marque of marques">
+              <tr>
+                <td>{{ marque.idmarque }}</td>
+                <td>{{ marque.nomMarque }}</td>
+                <td>{{ marque.pays }}</td>
+                <td>
+                  <a class="btn btn-danger" (click)="supprimerMarque(marque)"
+                    >Supprimer</a
+                  >
+                </td>
+                <td>
+                  <a
+                    class="btn btn-info"
+                    [routerLink]="['/updateMarque', marque.idmarque]"
+                    >Modifier</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

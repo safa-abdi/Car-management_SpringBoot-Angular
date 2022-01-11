@@ -1,0 +1,73 @@
+<html>
+  <head> </head>
+  <body
+    [ngStyle]="{
+      backgroundImage: 'url(assets/images/im5.jpg)',
+      'background-repeat': 'no-repeat',
+      height: '
+    800px',
+      'background-size': '100% 800px'
+    }"
+  >
+    <table width="100%">
+      <tr>
+        <td align="center">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+            <label>Voitures </label>
+            <select
+              class="form-control form-control-lg"
+              id="idVoiture"
+              name="voiture"
+              [(ngModel)]="designation"
+              (change)="onChange()"
+            >
+              <option *ngFor="let vt of voitures" value="{{ vt.designation }}">
+                {{ vt.designation }}
+              </option>
+            </select>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="card shadow mb-4">
+      <div class="card-body">
+        <table class="table table-striped">
+          <tr>
+            <th>Id</th>
+            <th>Designation</th>
+            <th>dateCreation</th>
+            <th>Prix (en M.DT)</th>
+            <th>couleurs</th>
+            <th>disponibilite</th>
+            <th>Marque</th>
+            <th>Action</th>
+          </tr>
+          <tbody *ngFor="let voiture of voitures">
+            <tr>
+              <td>{{ voiture.idVoiture }}</td>
+              <td>{{ voiture.designation }}</td>
+              <td>{{ voiture.dateCreation | date: "dd/MM/yyyy" }}</td>
+              <td>{{ voiture.prixVoiture }}</td>
+              <td>{{ voiture.couleurs }}</td>
+              <td>{{ voiture.disponibilite }}</td>
+              <td>{{ voiture.marque.nomMarque }}</td>
+              <td>
+                <a class="btn btn-danger" (click)="supprimerVoiture(voiture)"
+                  >Supprimer</a
+                >
+              </td>
+              <td>
+                <a
+                  class="btn btn-info"
+                  [routerLink]="['/updateVoiture', voiture.idVoiture]"
+                  >Modifier</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

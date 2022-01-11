@@ -1,0 +1,139 @@
+<head>
+  <style>
+    td{
+       color: darkcyan; font-weight: bold; font-style: italic";
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <br />
+    <div>
+      <h2 style="text-align: center">Ajouter une Voiture</h2>
+    </div>
+    <br />
+    <hr />
+    <br />
+    <form #addForm="ngForm" (ngSubmit)="addVoiture(addForm)">
+      <table width="100%">
+        <tr>
+          <td rowspan="5" width="30%">
+            <img
+              class="img-responsive"
+              src="assets/images/iim8.jpg"
+              width="500"
+              height="300"
+            />
+          </td>
+          <td width="35%">
+            <div class="col-sm-3 col-md-3 col-lg-5">
+              <label>ID Voiture</label>
+              <input
+                type="text"
+                [(ngModel)]="newVoiture.idVoiture"
+                name="idVoiture"
+                class="form-control"
+                readonly
+              />
+            </div>
+          </td>
+          <td width="35%">
+            <div class="col-sm-4 col-md-4 col-lg-10">
+              <label>Designation</label>
+              <input
+                type="text"
+                [(ngModel)]="newVoiture.designation"
+                name="designation"
+                class="form-control"
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="col-sm-4 col-md-4 col-lg-9">
+              <label>dateCreation</label>
+              <input
+                type="date"
+                [(ngModel)]="newVoiture.dateCreation"
+                name="dateCreation"
+                class="form-control"
+              />
+            </div>
+          </td>
+          <td>
+            <div class="col-sm-4 col-md-4 col-lg-10">
+              <label>Prix Voiture</label>
+              <input
+                type="number"
+                [(ngModel)]="newVoiture.prixVoiture"
+                name="prixVoiture"
+                class="form-control"
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="col-sm-4 col-md-4 col-lg-10">
+              <label>Couleurs</label>
+              <input
+                type="text"
+                [(ngModel)]="newVoiture.couleurs"
+                name="couleurs"
+                class="form-control"
+              />
+            </div>
+          </td>
+          <td>
+            <div class="col-sm-4 col-md-4 col-lg-10">
+              <label>disponibilite</label>
+              <input
+                type="text"
+                [(ngModel)]="newVoiture.disponibilite"
+                name="disponibilite"
+                class="form-control"
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="col-sm-4 col-md-4 col-lg-11">
+              <label>Marque</label>
+              <div class="select">
+                <select
+                  class="form-control"
+                  id="inputState"
+                  name="marque"
+                  [(ngModel)]="marques"
+                  required
+                >
+                  <option
+                    [ngValue]="marque.idmarque"
+                    *ngFor="let marque of marques"
+                  >
+                    {{ marque.nomMarque }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center">
+            <div class="mt-2">
+              <br />
+              <button type="submit" class="btn btn-outline-dark btn-lg">
+                Ajouter
+              </button>
+              <div>
+                <h3>{{ message }}</h3>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>

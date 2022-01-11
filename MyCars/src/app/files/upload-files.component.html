@@ -1,0 +1,103 @@
+<div class="col-md-12">
+  <h2><br /></h2>
+  <h1 align="center">Ajouter Image à une voiture</h1>
+  <h2><br /></h2>
+</div>
+<form>
+  <table width="80%" align="center">
+    <tr>
+      <td
+        width="50%"
+        style="color: darkcyan; font-weight: bold; font-style: italic"
+      >
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div>
+          <div class="col-sm-3 col-md-3 col-lg-5">
+            <label>Choisir image</label>
+            <div class="col-md-6">
+              <input type="file" (change)="onFileChanged($event)" />
+            </div>
+          </div>
+          <br />
+          <div class="col-sm-4 col-md-4 col-lg-9">
+            <label>Chosir voiture</label>
+            <div class="select">
+              <select
+                class="form-control"
+                id="inputState"
+                name="idVoiture"
+                [(ngModel)]="idVoiture"
+                required
+              >
+                <option
+                  [ngValue]="voiture.idVoiture"
+                  *ngFor="let voiture of voitures"
+                >
+                  {{ voiture.designation }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <br /><br />
+          <div align="center" class="col-sm-4 col-md-4 col-lg-9">
+            <input
+              type="submit"
+              (click)="onUpload()"
+              value="upload"
+              class="btn btn-info"
+            />
+          </div>
+        </div>
+        <br />
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </td>
+      <td width="30%">
+        <img
+          class="img-responsive"
+          src="assets/images/im13.png"
+          width="500"
+          height="400"
+        />
+      </td>
+    </tr>
+  </table>
+  <!--
+  <div class="container row">
+    <div class="col-md-6">
+      <input type="file" (change)="onFileChanged($event)" />
+    </div>
+    <div class="select">
+      <select
+        class="form-control"
+        id="inputState"
+        name="idVoiture"
+        [(ngModel)]="idVoiture"
+        required
+      >
+        <option [ngValue]="voiture.idVoiture" *ngFor="let voiture of voitures">
+          {{ voiture.designation }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <input type="submit" (click)="onUpload()" value="upload" />
+    </div>
+  </div>
+  <div class="container row">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="image name"
+        [(ngModel)]="imageName"
+        name="name"
+      />
+    </div>
+    <div class="col-md-6">
+      <input type="button" (click)="getImage()" value="Get Image" />
+    </div>
+  </div>
+  -->
+</form>

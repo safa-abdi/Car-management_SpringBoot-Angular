@@ -1,0 +1,72 @@
+<div class="container">
+  <div>
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <h2 style="text-align: center">Ajouter une Marque</h2>
+    <hr />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </div>
+  <form>
+    <table width="100%">
+      <tr>
+        <td
+          width="70%"
+          style="color: darkcyan; font-weight: bold; font-style: italic"
+        >
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="col-sm-3 col-md-3 col-lg-5">
+            <label>ID Marque</label>
+            <input
+              readonly
+              type="text"
+              [(ngModel)]="newMarque.idmarque"
+              name="idmarque"
+              class="form-control"
+            />
+          </div>
+          <br />
+          <div class="col-sm-4 col-md-4 col-lg-9">
+            <label>Nom Marque</label>
+            <input
+              type="text"
+              [(ngModel)]="newMarque.nomMarque"
+              name="nomMarque"
+              class="form-control"
+            />
+          </div>
+          <br />
+          <div class="col-sm-4 col-md-4 col-lg-9">
+            <label>Pays</label>
+            <input
+              type="text"
+              [(ngModel)]="newMarque.pays"
+              name="pays"
+              class="form-control"
+            />
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="mt-2" style="font-weight: bold">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button
+              type="submit"
+              (click)="addMarque()"
+              class="btn btn-outline-secondary btn-lg"
+            >
+              Ajouter
+            </button>
+            <div>
+              <h3>{{ message }}</h3>
+            </div>
+          </div>
+        </td>
+        <td width="30%">
+          <img
+            class="img-responsive"
+            src="assets/images/unnamed.jpg"
+            width="400"
+            height="300"
+          />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

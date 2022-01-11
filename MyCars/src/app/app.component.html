@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Gestion des Voitures</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm" style="background-color: darkcyan">
+      <!-- Brand -->
+      <a class="navbar-brand" style="color: white" href="#">Gestion Voitures</a>
+      <!-- Links -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a
+            *ngIf="authService.isAdmin()"
+            class="nav-link"
+            style="color: white"
+            routerLink="/voitures"
+            >Home</a
+          >
+        </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            *ngIf="authService.isAdmin()"
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbardrop"
+            data-toggle="dropdown"
+            style="color: white"
+          >
+            Voitures
+          </a>
+          <div class="dropdown-menu" style="color: white">
+            <a
+              *ngIf="authService.isAdmin()"
+              class="dropdown-item"
+              routerLink="/add-voitures"
+              >Ajouter</a
+            >
+            <a
+              class="dropdown-item"
+              routerLink="/voitures"
+              *ngIf="authService.isAdmin()"
+              >Lister</a
+            >
+            <a
+              class="dropdown-item"
+              routerLink="/rechercheParNomVoiture"
+              *ngIf="authService.isAdmin()"
+              >Recherche Par Nom voiture</a
+            >
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbardrop"
+            data-toggle="dropdown"
+            style="color: white"
+            *ngIf="authService.isAdmin()"
+          >
+            Marques
+          </a>
+          <div class="dropdown-menu" style="color: white">
+            <a
+              class="dropdown-item"
+              routerLink="/add-marques"
+              *ngIf="authService.isAdmin()"
+              >Ajouter</a
+            >
+            <a
+              class="dropdown-item"
+              routerLink="/marques"
+              *ngIf="authService.isAdmin()"
+              >Lister</a
+            >
+            <a
+              class="dropdown-item"
+              routerLink="/rechercheParMarque"
+              *ngIf="authService.isAdmin()"
+              >Recherche Par Marque</a
+            >
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbardrop"
+            data-toggle="dropdown"
+            style="color: white"
+            *ngIf="authService.isAdmin()"
+          >
+            Images
+          </a>
+          <div class="dropdown-menu" style="color: white">
+            <a
+              class="dropdown-item"
+              routerLink="/add-Images"
+              *ngIf="authService.isAdmin()"
+              >Ajouter</a
+            >
+            <a
+              class="dropdown-item"
+              routerLink="/cherche-Images"
+              *ngIf="authService.isAdmin()"
+              >Gérer images</a
+            >
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <a class="nav-link">{{ authService.loggedUser }}</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbardrop"
+            data-toggle="dropdown"
+          >
+            Connexion
+          </a>
+          <div class="dropdown-menu">
+            <a
+              *ngIf="!authService.isloggedIn"
+              class="dropdown-item"
+              routerLink="login"
+              >login</a
+            >
+            <a
+              *ngIf="authService.isloggedIn"
+              class="dropdown-item"
+              (click)="onLogout()"
+              >logout</a
+            >
+            <a class="dropdown-item" href="#">Profile</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
+<router-outlet></router-outlet>
